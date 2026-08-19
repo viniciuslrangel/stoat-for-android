@@ -30,12 +30,13 @@ jobs:
           cp stoatbuild.properties.example stoatbuild.properties
           cp sentry.properties.example sentry.properties
           cp app/google-services.json.example app/google-services.json
+          sed -i 's/sentry.upload_mappings=true/sentry.upload_mappings=false/' stoatbuild.properties
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
       - name: Build release APK
-        run: ./gradlew --no-daemon assembleRelease
+        run: ./gradlew --no-daemon assembleRelease -x uploadSentryProguardMappingsRelease
 
       - name: Upload release APK
         uses: softprops/action-gh-release@v2
