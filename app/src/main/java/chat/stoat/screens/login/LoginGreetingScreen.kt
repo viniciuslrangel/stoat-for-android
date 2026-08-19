@@ -46,13 +46,16 @@ import chat.stoat.BuildConfig
 import chat.stoat.R
 import chat.stoat.composables.generic.AnyLink
 import chat.stoat.composables.generic.Weblink
+import chat.stoat.composables.screens.login.ServerSettingsPanel
 import chat.stoat.core.model.data.STOAT_MARKETING
+import chat.stoat.persistence.KVStorage
 import com.chuckerteam.chucker.api.Chucker
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun LoginGreetingScreen(navController: NavController) {
     val context = LocalContext.current
+    val kvStorage = remember(context) { KVStorage(context) }
     var catTaps by remember { mutableIntStateOf(0) }
     var showBoringButton by remember { mutableStateOf(false) }
 
@@ -176,7 +179,16 @@ fun LoginGreetingScreen(navController: NavController) {
                 }
             }
 
-            Spacer(modifier = Modifier.height(40.dp))
+            Spacer(modifier = Modifier.height(16.dp))
+
+            ServerSettingsPanel(
+                kvStorage = kvStorage,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp),
+            )
+
+            Spacer(modifier = Modifier.height(24.dp))
 
             CompositionLocalProvider(
                 LocalTextStyle provides LocalTextStyle.current.copy(textAlign = TextAlign.Center)

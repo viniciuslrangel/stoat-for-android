@@ -6,6 +6,7 @@ on:
 
 jobs:
   track_pr:
+    if: github.repository == 'stoatchat/for-android'
     runs-on: ubuntu-latest
     steps:
       - name: Get project data

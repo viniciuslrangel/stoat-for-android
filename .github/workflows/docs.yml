@@ -5,6 +5,7 @@ on:
 
 jobs:
     deploy:
+        if: github.repository == 'stoatchat/for-android'
         runs-on: ubuntu-latest
         permissions:
             contents: write # To push a branch

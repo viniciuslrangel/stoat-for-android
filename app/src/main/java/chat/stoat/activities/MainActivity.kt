@@ -91,6 +91,7 @@ import chat.stoat.internals.StoatWebLink
 import chat.stoat.internals.toStoatWebLinkOrNull
 import chat.stoat.material.EasingTokens
 import chat.stoat.persistence.KVStorage
+import chat.stoat.settings.ServerConfigRepository
 import chat.stoat.screens.DefaultDestinationScreen
 import chat.stoat.screens.about.AboutScreen
 import chat.stoat.screens.about.AttributionScreen
@@ -183,6 +184,8 @@ class MainActivityViewModel(
     private fun doPreStartupTasks() {
         Log.d("MainActivity", "Performing pre-startup tasks")
         viewModelScope.launch {
+            Log.d("MainActivity", "Loading server config from KV")
+            ServerConfigRepository.load(kvStorage)
             Log.d("MainActivity", "Hydrating Experiments from KV")
             Experiments.hydrateWithKv()
             Log.d("MainActivity", "Performing health check")

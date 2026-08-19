@@ -38,6 +38,14 @@
     <string name="could_not_log_in_heading">There was a problem logging you in</string>
     <string name="could_not_log_in_body">You might have logged out from another device, or your internet connection might be down.</string>
     <string name="could_not_log_in_cta_try_again">Try again</string>
+
+    <string name="server_settings_show">Server settings</string>
+    <string name="server_settings_hide">Hide server settings</string>
+    <string name="server_settings_url_label">Server URL</string>
+    <string name="server_settings_save">Save</string>
+    <string name="server_settings_saved">Saved. Changes apply on next login.</string>
+    <string name="server_settings_invalid">Invalid server URL</string>
+    <string name="server_settings_hint">Use your instance URL, e.g. https://stoat.viniciusrangel.dev. Saved between launches.</string>
     <string name="could_not_log_in_cta_logout">Log out</string>
 
     <string name="login_heading">Let\'s log you in</string>
